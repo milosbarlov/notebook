@@ -1,0 +1,61 @@
+<style>
+    .full button span {
+        background-color: limegreen;
+        border-radius: 32px;
+        color: black;
+    }
+    .partially button span {
+        background-color: orange;
+        border-radius: 32px;
+        color: black;
+    }
+</style>
+<div class="col-md-12">
+    <h1>Birthday List</h1>
+    <form class="form-search form-inline " style="margin-bottom:10px;">
+        <input type="text" class="form-control search-query" ng-model='search' style="width:100%" placeholder="Search..." />
+    </form>
+    <table class="table table-bordered" id="tableAnimate">
+       <tr>
+           <th></th>
+           <th>First name</th>
+           <th>Last name</th>
+           <th>Birthday</th>
+           <th></th>
+       </tr>
+       <tr ng-repeat ="birth in birthdayList | filter:search">
+           <td>{{$index + 1}}</td>
+           <td>{{birth.first_name}}</td>
+           <td>{{birth.last_name}}</td>
+           <td>{{birth.birthday}}</td>
+           <td class="text-right"><span style="cursor:pointer" class="glyphicon glyphicon-remove" ng-click="deleteBirthday($index)"></span></td>
+       </tr>
+    </table>
+    <span style="font-size:24px;">ADD</span>
+    <span class="glyphicon glyphicon-plus btn-lg"  aria-hidden="true" style="color:green;cursor: pointer" ng-show="flag" ng-click="change()"></span>
+    <span class="glyphicon glyphicon-minus btn-lg" aria-hidden="true" style="color:green;cursor:pointer" ng-show="!flag" ng-click="change()"></span>
+    <div class="animate" ng-if="!flag">
+        <h1>Add birthday</h1>
+        <form name="newNote" novalidate id="form">
+            <div class="form-group">
+                <label for="exampleInputEmail1">First name</label>
+                <input type="text" ng-required="true" ng-model="birthday.first_name" class="form-control" id="exampleInputEmail1" name="title" placeholder="first name">
+            </div>
+            <div class="form-group">
+                <label for="Birthday">Last name</label>
+                <input type="text" name="note" ng-required="true" ng-model="birthday.last_name" class="form-control"  id="Birthday" placeholder="last name">
+            </div>
+            <div class="form-group">
+                <label>Birthday</label>
+                <p class="input-group">
+                    <input type="text" class="form-control" show-weeks="false" datepicker-popup="{{format}}" ng-model="dt" is-open="status.opened"  datepicker-options="dateOptions"  ng-required="true" close-text="Close" />
+              <span class="input-group-btn">
+                <button style="height:33px;" type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+                </p>
+            </div>
+
+            <button type="submit" class="btn btn-primary" ng-disabled="newNote.$invalid" ng-click="saveBirthday()">Save</button>
+        </form>
+    </div>
+</div>

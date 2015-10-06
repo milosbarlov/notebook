@@ -1,0 +1,20 @@
+<div class="col-md-12">
+    <h1>Note List</h1>
+    <a href="#/notes/new" class="btn btn-success" style="margin-bottom: 10px;">New note</a>
+    <form class="form-search form-inline " style="margin-bottom:10px;">
+        <input type="text" class="form-control search-query" ng-model='search' style="width:100%" placeholder="Search..." />
+    </form>
+    <table class="table table-bordered">
+        <tr data-ng-repeat="data in dataBase | filter:search">
+            <td>{{$index + 1}}</td>
+            <td>{{data.title}}</td>
+            <td>{{data.note | limitTo:10}}{{data.note.length > 10 ? '...':''}}</td>
+            <td>{{data.date}}</td>
+            <td class="text-right">
+                <a href="#/notes/view/{{$index}}" style="color:grey"><span class="glyphicon glyphicon-eye-open"></span></a>
+                <a href="#/notes/edit/{{$index}}" style="color:grey"><span class="glyphicon glyphicon-pencil"></span></a>
+                <span style="cursor:pointer" class="glyphicon glyphicon-remove" ng-click="deleteNote($index)"></span>
+            </td>
+        </tr>
+    </table>
+</div>

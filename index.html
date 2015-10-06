@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- 
+	Template 2018 Notebook
+    http://www.tooplate.com/view/2018-notebook
+-->
+<title>Notebook - Free HTML Template</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+<link href="tooplate_style.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="css/coda-slider.css" type="text/css" charset="utf-8" />
+
+
+</head>
+<body ng-app='App' ng-controller="mainCtrl">
+	
+<div id="slider">
+	<div id="tooplate_wrapper">
+    <div id="tooplate_sidebar">
+            <div id="header">
+                <h1><a href="#/"><img src="images/tooplate_logo.png" title="Notebook Template - tooplate.com" alt="Notebook free html template" /></a></h1>
+            </div>    
+			
+            <div id="menu">
+                <ul class="navigation">
+                    <li><a href="#/notes" class="selected menu_01">Notes</a></li>
+                    <li><a href="#/birthday" class="menu_02">Birthday</a></li>
+                </ul>
+            </div>
+		</div> <!-- end of sidebar -->  
+    
+        <div id="content" class='container'>
+          <div class='container-fluid'>
+            <div class='row'>
+                <div ui-view></div>
+            </div>
+          </div>
+
+        </div>
+  </div> 
+</div>
+
+<div id="footer">
+    
+</div>
+<!-- SCRIPTS -->
+  <script src="vendors/angular.min.js"></script>
+  <script src="vendors/angular-animate.js"></script>
+  <script src="vendors/ui-bootstrap-tpls-0.13.4.min.js"></script>
+  <script src="vendors/angular-ui-router.min.js"></script>
+  <script src="app/notes/notes.js"></script>
+  <script src="app/birthday/birthday.js"></script>
+  <script src="app/app.js"></script>
+</body>
+</html>
